@@ -17,7 +17,7 @@ const posts = (await getCollection('network-analysis')).sort(
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
 			main {
-				width: 960px;
+				width: 1060px;
 			}
 			ul {
 				display: flex;
@@ -39,8 +39,8 @@ const posts = (await getCollection('network-analysis')).sort(
 				margin-bottom: 1rem;
 				text-align: center;
 			}
-			ul li:first-child img {
-				width: 100%;
+			ul li:first-child img { /* before 100% */
+				width: 70%;
 			}
 			ul li:first-child .title {
 				font-size: 2.369rem;
