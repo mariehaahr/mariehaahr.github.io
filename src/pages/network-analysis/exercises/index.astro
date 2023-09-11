@@ -26,21 +26,32 @@ const posts = (await getCollection('na-exercises')).sort(
 				list-style-type: none;
 				margin: 0;
 				padding: 0;
+				
 			}
 			ul li {
-				width: calc(50% - 1rem);
+				width: calc(100% - 20px);
 			}
 			ul li * {
 				text-decoration: none;
 				transition: 0.2s ease;
+				
 			}
 			ul li img {
 				margin-bottom: 0.5rem;
 				border-radius: 12px;
+				
 			}
 			ul li a {
 				display: block;
+			
 			}
+			.title-box {
+				background-color: #f2f2f2;
+				padding: 1rem;
+				border-radius: 12px;
+				box-shadow: var(--box-shadow);
+			}
+}
 			.title {
 				margin: 0;
 				color: rgb(var(--black));
@@ -57,14 +68,16 @@ const posts = (await getCollection('na-exercises')).sort(
 			ul a:hover img {
 				box-shadow: var(--box-shadow);
 			}
-			@media (max-width: 720px) {
+			@media (max-width: 1200px) {
 				ul {
 					gap: 0.5em;
 				}
 				ul li {
 					width: 100%;
 					text-align: center;
+					
 				}
+			}
 		</style>
 	</head>
 	<body>
@@ -75,16 +88,19 @@ const posts = (await getCollection('na-exercises')).sort(
 					{
 						posts.map((post) => (
 							<li>
-								<a href={`/blog/network-analysis/${post.slug}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
+								<a href={`/blog/na-exercises/${post.slug}/`}>
+									{/*<img width={1200} height={100} src={post.data.heroImage} alt=""/> */}
+									<div class="title-box">
+										<h4 class="title">{post.data.title}</h4> 
+										<p class="date"></p> 
+										<FormattedDate date={post.data.pubDate} /> 
+									</div>
 									</p>
 								</a>
 							</li>
 						))
 					}
+				
 				</ul>
 			</section>
 		</main>

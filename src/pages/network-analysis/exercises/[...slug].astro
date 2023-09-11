@@ -1,6 +1,6 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
-import BlogPost from '../../../layouts/BlogPost.astro';
+import Exercise from '../../../layouts/Exercise.astro';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('na-exercises');
@@ -15,6 +15,6 @@ const post = Astro.props;
 const { Content } = await post.render();
 ---
 
-<BlogPost {...post.data}>
+<Exercise {...post.data}>
 	<Content />
-</BlogPost>
+</Exercise>
