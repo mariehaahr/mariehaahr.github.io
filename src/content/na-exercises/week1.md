@@ -57,7 +57,7 @@ maxnode = max(node_neighbors, key = node_neighbors.get)
 print(maxnode, node_neighbors[maxnode])
 ```
 
-131 4
+<span style="color:grey;">131 4</span>
 
 ```python
 # Find the node in type 1 with the most neighbors
@@ -66,7 +66,7 @@ maxnode = max(node_neighbors, key = node_neighbors.get)
 print(maxnode, node_neighbors[maxnode])
 ```
 
-2 59
+<span style="color:grey;">2 59</span>
 
 ### Exercise 4.4
 
@@ -95,9 +95,9 @@ print(second_window.nodes)
 print(third_window.nodes)
 ```
 
-['1', '2', '3', '4', '5', '6', '7', '8', '9', '13', '12']
+<span style="color:grey;">['1', '2', '3', '4', '5', '6', '7', '8', '9', '13', '12']</span>
 
-['1', '2', '3', '4', '5', '7', '8', '9', '6', '12']
+<span style="color:grey;">['1', '2', '3', '4', '5', '7', '8', '9', '6', '12']</span>
 
-['1', '2', '3', '5', '4', '6', '7', '8', '10', '11', '12']
+<span style="color:grey;">['1', '2', '3', '5', '4', '6', '7', '8', '10', '11', '12']</span>
 
