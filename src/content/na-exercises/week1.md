@@ -5,12 +5,99 @@ pubDate: 'Sep 08 2023'
 heroImage: '/na_ex/first.png'
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
+### Exercise 3.4
+*Draw a correlation network for the given vectors, by only drawing edges with positive weights, ignoring self loops.*
 
-Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
+Pay attention: This dataset is not a network, it is vectors, which we will turn into a correlation network eventually.
 
-Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
+```python
+import pandas as pd
+import networkx as nx
+import matplotlib.pyplot as plt
 
-Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi.
+# Read the data
+df = pd.read_csv("data.txt", sep = "\t")
 
-Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
+# calculate the correlations, and replace them in the dataframe
+df = df.corr()
+# Take only positive correlations
+df = df.unstack().reset_index()
+df.columns = ("source", "target", "edge")
+df = df[df["edge"]]
+
+# Remove self loops
+df = df[df["source"] != df["target"]]
+
+# Make networkx object
+G = nx.from_pandas_edgelist(df)
+
+# Draw
+nx.draw(G, with_labels = True)
+plt.savefig("correlation_network.png")
+plt.show()
+```
+The correlation network looks like:
+
+<img src="../../../public/na_ex/graph_ex1.png" alt="graph" width="400" height="250">
+
+### Exercise 4.1 
+
+*This network is bipartite. Identify the nodes in either type and find the nodes, in either type, with the most neighbors.*
+
+```python
+# Load the data
+G2 = nx.read_edgelist("data2.txt")
+
+# create the two bipartite sets of nodes
+nodes = nx.algorithms.bipartite.basic.sets(G)
+
+# Find the node in type 0 with the most neighbors
+node_neighbors = {n: len(set(G.neighbors(n))) for n in nodes[0]}
+maxnode = max(node_neighbors, key = node_neighbors.get)
+print(maxnode, node_neighbors[maxnode])
+```
+
+131 4
+
+```python
+# Find the node in type 1 with the most neighbors
+node_neighbors = {n: len(set(G.neighbors(n))) for n in nodes[1]}
+maxnode = max(node_neighbors, key = node_neighbors.get)
+print(maxnode, node_neighbors[maxnode])
+```
+
+2 59
+
+### Exercise 4.4
+
+*This network is dynamic, the third and fourth columns of the edge list tell you the first and last snapshot in which the edge was continuously present. An edge can reappear if the edge was present in two discontinuous time periods. Aggregate it using a disjoint window of size 3.*
+
+```python
+# Load the data. We need to import as multigraph, or networkx will collapse the edges.
+# We also need to make sure to import the edge type information.
+G = nx.read_edgelist("data3.txt", create_using = nx.MultiGraph(), data = [("start", int), ("end", int)])
+# Since the window is disjoint and of size three, we need to group the 1-3, 4-6, and 7-9 snapshots.
+first_window = nx.Graph()
+second_window = nx.Graph()
+third_window = nx.Graph()
+
+# split the different time slots into the three graphs
+for e in G.edges(data = True):
+   if e[2]["start"] <= 3:
+      first_window.add_edge(e[0], e[1])
+   if e[2]["start"] <= 6 and e[2]["end"] > 3:
+      second_window.add_edge(e[0], e[1])
+   if e[2]["end"] > 6:
+      third_window.add_edge(e[0], e[1])
+
+print(first_window.nodes)
+print(second_window.nodes)
+print(third_window.nodes)
+```
+
+['1', '2', '3', '4', '5', '6', '7', '8', '9', '13', '12']
+
+['1', '2', '3', '4', '5', '7', '8', '9', '6', '12']
+
+['1', '2', '3', '5', '4', '6', '7', '8', '10', '11', '12']
+
