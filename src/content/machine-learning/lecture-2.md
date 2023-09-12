@@ -7,8 +7,6 @@ heroImage: '/blog-placeholder-3.jpg'
 
 # Lecture 2 recap
 
-Type: Reading
-Styr på: Yes
 Subject: Intro to statistical Learning, Linear Regression
 
 # Statistical Learning
