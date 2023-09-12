@@ -1,7 +1,7 @@
 ---
 title: 'Lecture 3'
 description: 'Linear regression'
-pubDate: 'Jul 09 2022'
+pubDate: 'Sep 09 2022'
 heroImage: '/blog-placeholder-3.jpg'
 ---
 

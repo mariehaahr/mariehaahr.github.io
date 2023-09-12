@@ -19,6 +19,15 @@ const posts = (await getCollection('machine-learning')).sort(
 			main {
 				width: 1060px;
 			}
+			.title-main {
+				margin: 0;
+				color: rgb(var(--black));
+				line-height: 1;
+				text-align: center;
+				margin-bottom: 40px;
+				font-size: 50px;
+				
+			}
 			ul {
 				display: flex;
 				flex-wrap: wrap;
@@ -40,7 +49,9 @@ const posts = (await getCollection('machine-learning')).sort(
 				text-align: center;
 			}
 			ul li:first-child img {
-				width: 70%;
+				width: 800px;
+				height: 300px;
+				object-fit: cover;
 			}
 			ul li:first-child .title {
 				font-size: 2.369rem;
@@ -88,8 +99,16 @@ const posts = (await getCollection('machine-learning')).sort(
 	<body>
 		<Header />
 		<main>
+			<h4 class="title-main">Machine Learning</h4>
 			<section>
+
 				<ul>
+					<li>
+						<a href='/machine-learning/examprep/'>
+							<img width={720} height={360} src='/examprep.jpg'/>
+							<h4 class="title">Exam Preparation</h4>
+						</a>
+					</li>
 					{
 						posts.map((post) => (
 							<li>
