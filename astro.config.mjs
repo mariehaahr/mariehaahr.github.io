@@ -9,7 +9,7 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://mariehaahr.github.io',
-	base: '/astro',
+	base: '/notes',
 	integrations: [mdx(), sitemap()],
 	markdown: {
 		remarkPlugins: [
