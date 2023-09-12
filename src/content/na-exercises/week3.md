@@ -143,3 +143,181 @@ The average clustering coefficient, provides the average clustering tendency of 
 
 **Local Clustering Coefficient**
 The local clustering coefficient of a specific node measures how well its neighbors are connected to each other. It quantifies the likelihood that the neighbors of a node form a cluster around that node. The local clustering coefficient of a node provides insight into how tightly its immediate neighborhood is connected. A high local clustering coefficient indicates that the node's neighbors are well-connected, while a low coefficient suggests that the neighbors are not well-connected to each other.
+
+```python
+# load data
+G3 = nx.read_edgelist('data_93.txt')
+
+# Global Clustering Coefficient
+global_clustering_coefficient = nx.transitivity(G3)
+print("Global Clustering Coefficient:", global_clustering_coefficient)
+
+# Average Clustering Coefficient
+average_clustering_coefficient = nx.average_clustering(G3)
+print("Average Clustering Coefficient:", average_clustering_coefficient)
+
+# Local Clustering Coefficient (for a specific node 'node_id')
+node_id = 0  # Replace with the node you want to calculate for
+local_clustering_coefficient = nx.clustering(G3)
+print(f'dictinary of local clustering coefficients: {local_clustering_coefficient}')
+```
+
+<span style="color:grey;">Global Clustering Coefficient: 0.12443636088060324</span>
+
+<span style="color:grey;">Average Clustering Coefficient: 0.6464630921565044</span>
+
+<span style="color:grey;">dictinary of local clustering coefficients: {'100': 1.0, '101': 1.0, '10': 0.6, ...</span>
+
+### 9.4
+
+*What is the size in number of nodes of the largest maximal clique of the network used in Exercise 9.3? Which nodes are part of it?*
+
+```python
+# first load the data
+G4 = nx.read_edgelist('data_94.txt')
+
+# networkx has a function find_cliques, which returns all maximal cliques in an undirected graph
+cliques = nx.find_cliques(G4)
+cliques = list(cliques)
+
+# the function nx.graph_clique_number() returns the size of the maximal clique.
+largest_clique = nx.graph_clique_number(G4, cliques = cliques)
+print(f'The largest clique is of size {largest_clique}')
+
+# if we want to find out which nodes are in the cliques, we iterate iver the list of all cliques
+# and find the one who have a size of 9 nodes
+
+for i in cliques:
+    if len(i) == largest_clique:
+        print(i)
+```
+
+<span style="color:grey;">The largest clique is of size 9</span>  
+<span style="color:grey;">['15', '5', '2', '38', '4', '86', '12', '13', '82']</span>  
+<span style="color:grey;">['15', '5', '2', '97', '51', '57', '58', '55', '56']</span>  
+<span style="color:grey;">['15', '5', '2', '97', '51', '57', '58', '4', '131']</span>  
+<span style="color:grey;">['15', '5', '2', '97', '51', '57', '58', '183', '56']</span>  
+<span style="color:grey;">['15', '5', '2', '97', '51', '57', '58', '183', '131']</span>  
+<span style="color:grey;">['15', '5', '2', '13', '12', '87', '86', '4', '82']</span>  
+
+### 10.4
+
+*What's the diameter of the graph below? What's its average path length?*
+
+<img src="../../../public/na_ex/graph_104.png" alt="Alt Text" width="300" height="400">
+
+**Diameter**: The rightmost column of the histogram of shortest paths, we have the number of shortest paths of maximum length. This is the diameter of the network. The worst case for reachability in the network.
+
+In this case the diameter is 4.
+
+**Average path length**: What we calculate, then, is not the longest shortest path, but the typical path length, which is the average of all shortest path lengths.  
+1 1 2 2 3 3 4 4 = 20  
+1 1 1 1 2 2 3 3 = 14  
+1 1 1 1 2 2 3 3 = 14  
+2 1 1 1 2 2 3 3 = 15\
+2 1 1 1 1 1 2 2 = 11  
+3 2 2 2 1 1 1 1 = 13  
+3 2 2 2 1 1 1 1 = 13  
+4 3 3 3 2 1 1 1 = 18  
+4 3 3 3 2 1 1 1 = 18  
+(20 + 14+ 14 + 15 + 11 + 13 + 13 + 18 + 18) / (8 * 9) = 1.8888888888888888
+
+### 11.4
+
+*What's the most central node in the network 'used for Exercise 11.3 according to PageRank? How does PageRank compares with the in-degree? (for instance, you could calculate the Spearman and/or Pearson correlation between the two)*
+
+```python
+# load data as a directed network
+G5 = nx.read_edgelist('data_114.txt', create_using=nx.DiGraph())
+
+# we can use networkx's nx.pagerank() to find the node with the maximum value
+pagerank = nx.pagerank(G5)
+max_node = max(pagerank, key = pagerank.get)
+# key=pagerank.get is used as a custom sorting key for the max function. 
+# It tells Python to use the values from the pagerank dictionary 
+# (the PageRank scores) to determine the maximum value.
+
+print(f'The most central node is {max_node}, with a pagerank of {round(pagerank[max_node], 5)}')
+```
+
+<span style="color:grey;">The most central node is 836, with a pagerank of 0.00322</span>  
+
+```python
+# How does PageRank compares with the in-degree? (for instance, you could calculate the 
+# Spearman and/or Pearson correlation between the two)
+from scipy.stats import pearsonr, spearmanr
+indegree = dict(G5.in_degree)
+# we'll make a numpy array of the pagerank scores
+p_arr = np.array([pagerank[v] for v in G5.nodes])
+# we'll do the same for the in degree dict
+d_arr = np.array([indegree[w] for w in G5.nodes])
+
+# now lets calculate the spearman and pearson correlation
+# both function will return 2 values, the correlation coefficient and p-value for testing non-correlation
+pearson_c, rval_p = pearsonr(p_arr, d_arr)
+spearman_c, rval_s = spearmanr(p_arr, d_arr)
+
+print(f'the pearson corr. {pearson_c} with a p-val of {rval_p}')
+print(f'the pearson corr. {spearman_c} with a p-val of {rval_s}')
+```
+
+<span style="color:grey;">the pearson corr. 0.869335082603482 with a p-val of 0.0</span>  
+<span style="color:grey;">the pearson corr. 0.8965286651584561 with a p-val of 0.0</span>  
+
+*So we can conclude that the in-degree of a network and the pagerank are very similar, since both of the correlation measures says so*
+
+### 11.5  
+*Which is the most authoritative node in the network used for Exercise 11.3? Which one is the best hub? Use the HITS algorithm to motivate your answer (if using networkx, use the scipy version of the algorithm).*
+
+**HITS** is an algorithm designed to estimate a node’s centrality in a directed network. Differently from other centrality measures, HITS assigns two values to each node, you can say it assigns to one of two roles.
+ 
+<img src="../../../public/na_ex/hub.png" alt="hub" width="350" height="200">
+
+Hubs and authorities are an instance in which the quantitative
+approach of the centrality measures and the qualitative approach
+of the node roles meet. There is a way to estimate the degree of
+“hubbiness” and “authoritativeness” in a network. *This is what the
+HITS algorithm does. The underlying principle is very simple. A
+good hub is a hub that points to good authorities.* A good authority
+is an authority which is pointed by good hubs. These recursive
+definitions can be solved iteratively – or, more efficiently, with clever
+linear algebra – and they eventually converge.
+
+```python
+# read the data and load it a directed graph
+G6 = nx.read_edgelist("data_115.txt", create_using = nx.DiGraph())
+
+# now we use the HITS algorithm
+hits = nx.hits_scipy(G6)
+
+# the nx.hits_scipy() returns a dictionary with the hubs and authority
+best_hub = max(hits[0], key = hits[0].get)
+best_auth = max(hits[1], key = hits[1].get)
+
+print("Best Hub: %s" % best_hub)
+print("Best Authority: %s" % best_auth)
+```
+
+<span style="color:grey;">Best Hub: 2375</span>  
+<span style="color:grey;">Best Authority: 2056</span>  
+
+### 11.7
+*Calculate the k-core decomposition of this network. What's the highest core number in the network? How many nodes are part of the maximum core?*
+
+When it comes to node centrality, one common term you’ll hear thrown around is one of “core” node. This is usually a qualitative distinction, but sometimes we need a quantitative one. With k-core centrality we look for a way to say that a node is “more core” than another.  One can easily identify the k-core of a network via the k-core decomposition algorithm. 
+
+*K-Core Definition*: In a graph, a k-core is a maximal subgraph where all nodes have a degree of at least k within that subgraph. In other words, it's a subset of nodes that are tightly connected to each other.
+
+*K-Core Decomposition*: To find the k-cores within a graph, you perform a k-core decomposition. This involves iteratively removing nodes with degrees less than k until no more such nodes can be removed. The remaining nodes and edges constitute the k-core.
+
+```python
+#load the data
+G7 = nx.read_edgelist('data_117.txt')
+
+# Calculating the k-core decomposition and storing the maximum value.
+kcore = nx.core_number(G7)
+highest_core = max(kcore.values())
+print("# of nodes in the maximum core: %d" % (len([v for v in kcore if kcore[v] == highest_core])))
+```
+
+<span style="color:grey;">\# of nodes in the maximum core: 41</span>  
