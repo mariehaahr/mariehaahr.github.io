@@ -38,7 +38,6 @@ plt.show()
 
 <img src="../../../public/degree_distribution.png" alt="dd" width="700" height="450">
 
-
 ```python
 # lets plot the same thing in log-log scale
 #d_log = pd.DataFrame((counter['k']), np.log(counter['count']))
