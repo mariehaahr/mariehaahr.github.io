@@ -51,7 +51,7 @@ plt.show()
 <img src="../../../public/loglog_degree_distribution.png" alt="dd" width="700" height="450">
 
 ```python
-# finally plotting the CCDF
+# finally plotting the CCDF - the complementary cumulative distribution function
 
 # To make the CCDF we need to know how many nodes have degree equal to or higher
 # than a specific value. So we sort the dataframe in descending degree order, so
@@ -89,9 +89,13 @@ Looking at the R-squared value, we can see that the linear regression fits very 
 # estimating the CCDF by a powerlaw package
 import powerlaw as pl
 
-# With the powerlaw package, fitting the CCDf is simple. It will store results in the .power_law property. To
-# get the actual k_min, we need to find the degree value corresponding to the probability in .power_law.xmin:
-# pandas makes it easy. This is definitely a shifted power law. (Kappa contains the intercept information)
+# With the powerlaw package, fitting the CCDf is simple. 
+# It will store results in the .power_law property. To
+# get the actual k_min, we need to find the degree value 
+# corresponding to the probability in .power_law.xmin:
+# pandas makes it easy. This is definitely a shifted power 
+# law. (Kappa contains the intercept information)
+
 results = pl.Fit(ccdf["ccdf"])
 k_min = ccdf[ccdf["ccdf"] == results.power_law.xmin]["k"]
 print("Powerlaw CCDF Fit: %1.4f x ^ -%1.4f (k_min = %d)" % (10 ** results.power_law.Kappa, results.power_law.alpha, k_min))
@@ -165,7 +169,7 @@ $$CC=\frac{3 \cdot \text{\#Triangles}}{\text{\#Triads}}$$
 The global clustering coefficient, quantifies the overall tendency of nodes in the network to form clusters or triangles. A high global clustering coefficient indicates that the network is highly clustered, and nodes tend to form tightly interconnected groups. A low coefficient suggests a more random or loosely connected network.
 
 **Average Clustering Coefficient**
-The average clustering coefficient, provides the average clustering tendency of nodes in the network. It's the average of the local clustering coefficients of all nodes in the network. The average clustering coefficient provides an overview of how clustered the network is on average. A higher value indicates more local clustering within the network.
+The average clustering coefficient, provides the average clustering tendency of nodes in the network. It's the average of the local clustering coefficients of all nodes in the network. The average clustering coefficient provides an overview of how clustered the network is on average. A higher value indicates more local clustering within the network. *Here you calculate all of the local clustering coefficients, and then take the average. This is what makes it so different from the Global Clustering Coefficient.*
 
 **Local Clustering Coefficient**
 The local clustering coefficient of a specific node measures how well its neighbors are connected to each other. It quantifies the likelihood that the neighbors of a node form a cluster around that node. The local clustering coefficient of a node provides insight into how tightly its immediate neighborhood is connected. A high local clustering coefficient indicates that the node's neighbors are well-connected, while a low coefficient suggests that the neighbors are not well-connected to each other.
@@ -188,11 +192,9 @@ local_clustering_coefficient = nx.clustering(G3)
 print(f'dictinary of local clustering coefficients: {local_clustering_coefficient}')
 ```
 
-<span style="color:grey;">Global Clustering Coefficient: 0.12443636088060324</span>
-
-<span style="color:grey;">Average Clustering Coefficient: 0.6464630921565044</span>
-
-<span style="color:grey;">dictinary of local clustering coefficients: {'100': 1.0, '101': 1.0, '10': 0.6, ...</span>
+<span style="color:grey;">Global Clustering Coefficient: 0.12443636088060324</span>  
+<span style="color:grey;">Average Clustering Coefficient: 0.6464630921565044</span>  
+<span style="color:grey;">dictinary of local clustering coefficients: {'100': 1.0, '101': 1.0, '10': 0.6, ...</span>  
 
 ### 9.4
 
@@ -290,7 +292,7 @@ print(f'the pearson corr. {spearman_c} with a p-val of {rval_s}')
 <span style="color:grey;">the pearson corr. 0.869335082603482 with a p-val of 0.0</span>  
 <span style="color:grey;">the pearson corr. 0.8965286651584561 with a p-val of 0.0</span>  
 
-*So we can conclude that the in-degree of a network and the pagerank are very similar, since both of the correlation measures says so*
+*So we can conclude that the in-degree of a node almost says the same as the pagerank score of a node, since they have a very high correlation.*
 
 ### 11.5  
 *Which is the most authoritative node in the network used for Exercise 11.3? Which one is the best hub? Use the HITS algorithm to motivate your answer (if using networkx, use the scipy version of the algorithm).*
