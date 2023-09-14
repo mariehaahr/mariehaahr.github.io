@@ -5,8 +5,6 @@ pubDate: 'Sep 08 2022'
 heroImage: '/blog-placeholder-3.jpg'
 ---
 
-# Lecture 2 recap
-
 Subject: Intro to statistical Learning, Linear Regression
 
 # Statistical Learning

@@ -5,8 +5,6 @@ pubDate: 'Sep 09 2022'
 heroImage: '/blog-placeholder-3.jpg'
 ---
 
-# Lecture 3
-
 Contents: Bias-Var trade off, F-test, reducible+irreducible error, Bias-Var Decomposition
 
 ## 2.2.2 The Bias-Variance Trade-Off
