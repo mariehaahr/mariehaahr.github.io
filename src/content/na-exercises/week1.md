@@ -38,7 +38,7 @@ plt.show()
 ```
 The correlation network looks like:
 
-<img src="../../../public/graph_ex1.png" alt="graph" width="400" height="250">
+<img src="/graph_ex1.png" alt="graph" width="400" height="250">
 
 ### Exercise 4.1 
 
