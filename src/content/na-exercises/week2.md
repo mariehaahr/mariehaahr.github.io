@@ -111,7 +111,7 @@ print(vectors_r)
 
 Output:
 
-<img src="../../../public/vector.png" alt="graph" width="400" height="250">
+<img src="/vector.png" alt="graph" width="400" height="250">
 
 ```python
 # Now for the left ones:
@@ -124,7 +124,7 @@ print(vectors_l)
 
 Output
 
-<img src="../../../public/vector2.png" alt="graph" width="400" height="250">
+<img src="/vector2.png" alt="graph" width="400" height="250">
 
 ### 7.3
 *What is the average reciprocity in the network used in Exercise 7.2? How many nodes have a reciprocity of zero?*

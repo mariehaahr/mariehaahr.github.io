@@ -36,7 +36,7 @@ plt.savefig("degree_distribution.png")
 plt.show()
 ```
 
-<img src="../../../public/degree_distribution.png" alt="dd" width="700" height="450">
+<img src="/degree_distribution.png" alt="dd" width="700" height="450">
 
 ```python
 # lets plot the same thing in log-log scale
@@ -47,7 +47,7 @@ plt.savefig("loglog_degree_distribution.png")
 plt.show()
 ```
 
-<img src="../../../public/loglog_degree_distribution.png" alt="dd" width="700" height="450">
+<img src="/loglog_degree_distribution.png" alt="dd" width="700" height="450">
 
 ```python
 # finally plotting the CCDF - the complementary cumulative distribution function
@@ -67,7 +67,7 @@ ccdf.plot(kind = "line", x = "k", y = "ccdf", color = "#e41a1c", loglog = True)
 plt.savefig("degree_distribution_ccdf.png")
 ```
 
-<img src="../../../public/degree_distribution_ccdf.png" alt="dd" width="700" height="450">
+<img src="/degree_distribution_ccdf.png" alt="dd" width="700" height="450">
 
 ### 6.5
 
@@ -108,7 +108,7 @@ plt.savefig("ccdf_fit.png")
 ```
 
 
-<img src="../../../public/ccdf_fit.png" alt="dd" width="700" height="450">
+<img src="/ccdf_fit.png" alt="dd" width="700" height="450">
 
 *We can clearly see that the powerlaw is very shifted, since the its head (the beginning of the plot) is not following the fit.*
 
@@ -153,7 +153,7 @@ ccdf.plot(kind = "line", x = "k", y = "fit", color = "#377eb8", loglog = True, a
 plt.savefig("ccdf_fit.png")
 ```
 
-<img src="../../../public/curve_ccdf2.png" alt="Alt Text" width="400" height="600">
+<img src="/curve_ccdf2.png" alt="Alt Text" width="400" height="600">
 
 
 ### 9.3
@@ -231,7 +231,7 @@ for i in cliques:
 
 *What's the diameter of the graph below? What's its average path length?*
 
-<img src="../../../public/graph_104.png" alt="Alt Text" width="300" height="400">
+<img src="/graph_104.png" alt="Alt Text" width="300" height="400">
 
 **Diameter**: The rightmost column of the histogram of shortest paths, we have the number of shortest paths of maximum length. This is the diameter of the network. The worst case for reachability in the network.
 
@@ -298,7 +298,7 @@ print(f'the pearson corr. {spearman_c} with a p-val of {rval_s}')
 
 **HITS** is an algorithm designed to estimate a node’s centrality in a directed network. Differently from other centrality measures, HITS assigns two values to each node, you can say it assigns to one of two roles.
  
-<img src="../../../public/hub.png" alt="hub" width="350" height="200">
+<img src="/hub.png" alt="hub" width="350" height="200">
 
 Hubs and authorities are an instance in which the quantitative
 approach of the centrality measures and the qualitative approach
