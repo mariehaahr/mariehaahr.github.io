@@ -62,7 +62,10 @@ Imagine this picture from Michele’s book, where we have a lot of people standi
 - High clustering
 - Short path length
 
-![Screenshot 2022-09-22 at 11.10.02.png](/Screenshot_2022-09-22_at_11.10.02.png)
+
+<div style="text-align: center;">
+    <img src="/Screenshot_2022-09-22_at_11.10.02.png" alt="dd" width="600" height="350">
+</div>
 
 Small World:
 

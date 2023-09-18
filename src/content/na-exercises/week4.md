@@ -1,8 +1,8 @@
 ---
 title: 'Exercises - Week 4'
-description: 'Lorem ipsum dolor sit amet'
+description: 'Exercises for week 4 - NA'
 pubDate: 'Sep 18 2023'
-heroImage: '/na_ex/third.png'
+heroImage: 'pink-network.avif'
 ---
 
 ```python

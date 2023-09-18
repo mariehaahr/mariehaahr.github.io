@@ -7,7 +7,6 @@ heroImage: '/blog-placeholder-3.jpg'
 
 
 Readings:  ISLwR: 2.2.1-2, 5.1,  6.1-2  
-Subject: Cross-Val, Ridge, Lasso, AIC, BIC, adj. $R^2$,
 
 #### Table of contents
 1. [Introduction](#introduction)
@@ -126,7 +125,10 @@ Computational this is less expensive than LOOCV.
 
 It often gives more accurate estimates of the test error rate than LOOCV. This has to do with the bias-variance trade-off.
 
-![Screenshot 2022-09-09 at 11.51.38.png](/Screenshot_2022-09-09_at_11.51.38.png)
+
+<div style="text-align: center;">
+    <img src="/Screenshot_2022-09-09_at_11.51.38.png" alt="dd" width="600" height="350">
+</div>
 
 As you can see on the graphs, the striped line and the orange line (leave-1-out and k-folds) they are very similar, and therefore we don’t need to use Leave-1-Out (the very expensive one) and we can use a 10 fold, where we only need to fit the model 10 times instead of n times. 
 
@@ -355,7 +357,10 @@ These are 2 extremes, we want to find the perfect balance.
 
 The higher flexibility, the higher order polynomial.
 
-![Screenshot 2022-09-08 at 14.29.05.png](/Screenshot_2022-09-08_at_14.29.05.png)
+
+<div style="text-align: center;">
+    <img src="/Screenshot_2022-09-08_at_14.29.05.png" alt="dd" width="600" height="350">
+</div>
 
 The error of the model is constant, that is the striped line. The vertical dotted line is where the bias-variance trade off is perfect, this is the flexibility you should use. 
 
@@ -367,15 +372,26 @@ We want MSE to be small for all values of $x_0$’s and not just for a specific 
 
 We want to understand what happens across the range of $X$, but at the same time take into account the “frequency” with which the features $X$ appear in new data.
 
-![Screenshot 2022-09-09 at 10.57.45.png](/Screenshot_2022-09-09_at_10.57.45.png)
+<div style="text-align: center;">
+    <img src="/Screenshot_2022-09-09_at_10.57.45.png" alt="dd" width="600" height="350">
+</div>
 
-![Screenshot 2022-09-09 at 11.00.46.png](/Screenshot_2022-09-09_at_11.00.46.png)
+<div style="text-align: center;">
+    <img src="/Screenshot_2022-09-09_at_11.00.46.png" alt="dd" width="600" height="350">
+</div>
+
 
 The MSE is a theoretical quantity that we can estimate from the data. It is better estimated from data points that were not used during training.
 
-![Screenshot 2022-09-09 at 11.21.47.png](/Screenshot_2022-09-09_at_11.21.47.png)
+<div style="text-align: center;">
+    <img src="/Screenshot_2022-09-09_at_11.21.47.png" alt="dd" width="600" height="350">
+</div>
 
-![Screenshot 2022-09-09 at 11.22.33.png](/Screenshot_2022-09-09_at_11.22.33.png)
+<div style="text-align: center;">
+    <img src="/Screenshot_2022-09-09_at_11.22.33.png" alt="dd" width="600" height="350">
+</div>
+
+
 
 The grey line on the right, is the MSE of the training data, which is very low when the model is overfitted. The red line is then new data, and the MSE is very high when the model is overfitted (on the training data).
 

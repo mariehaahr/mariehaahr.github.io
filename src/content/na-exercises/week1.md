@@ -1,8 +1,8 @@
 ---
 title: 'Exercises - Week 1'
-description: 'Lorem ipsum dolor sit amet'
+description: 'Exercises for week 1 - NA'
 pubDate: 'Sep 08 2023'
-heroImage: '/na_ex/first.png'
+heroImage: 'pink-network.avif'
 ---
 
 ### Exercise 3.4

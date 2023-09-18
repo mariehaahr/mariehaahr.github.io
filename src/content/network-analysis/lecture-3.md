@@ -122,7 +122,9 @@ Density is kinda the probability that a random node pair is connected. The numbe
 
 How many edges do we need to connect $|V|$ nodes?
 
-![Screenshot 2022-09-14 at 15.56.49.png](../../../public/Screenshot_2022-09-14_at_15.56.49.png)
+<div style="text-align: center;">
+    <img src="/Screenshot_2022-09-14_at_15.56.49.png" alt="dd" width="600" height="350">
+</div>
 
 In (a) the graph has 3 nodes. We would then expect $3 \cdot 2/2 = 3$ edges, and that is what we have. Its density is the maximum possible: 100%.
 
@@ -134,7 +136,9 @@ Real life network are far more sparse than this.
 
 ### 9.2 Clustering Coefficient
 
-![Screenshot 2022-09-14 at 16.18.47.png](../../../public/Screenshot_2022-09-14_at_16.18.47.png)
+<div style="text-align: center;">
+    <img src="/Screenshot_2022-09-14_at_16.18.47.png" alt="dd" width="600" height="350">
+</div>
 
 The clustering coefficient is a measure to distinguish between different cases of a network with the same number of nodes and the same density (they can look very different).
 
@@ -202,7 +206,11 @@ Knowing the length distribution of all shortest paths in the network, conveys a 
 
 A tight distribution with little deviation implies that all nodes are more or less at the same distance from the average node in the network. A spread out distribution implies that some nodes are in a far out periphery and others are deeply embedded in a core.
 
-![Screenshot 2022-09-14 at 17.59.11.png](../../../public/Screenshot_2022-09-14_at_17.59.11.png)
+
+<div style="text-align: center;">
+    <img src="/Screenshot_2022-09-14_at_17.59.11.png" alt="dd" width="600" height="350">
+</div>
+
 
 #### Diameter
 

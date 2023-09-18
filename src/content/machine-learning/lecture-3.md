@@ -34,7 +34,10 @@ BIC (Bayesian Information Criteria)
 
 ### Explanation of figures in bias-variance trade off
 
-![Screenshot 2022-09-08 at 14.29.05.png](../../../public/Screenshot_2022-09-08_at_14.29.05.png)
+
+<div style="text-align: center;">
+    <img src="/Screenshot_2022-09-08_at_14.29.05.png" alt="dd" width="600" height="350">
+</div>
 
 In the figure to the left, the bias initially decreases rapidly, resulting in an initial sharp decrease in the expected test Mean Squared Error. 
 
@@ -66,9 +69,14 @@ The residuals should be Gaussian and evenly spread from the fitted line.
 
 ## Influential Points
 
-![Screenshot 2022-09-06 at 11.03.12.png](../../../public/Screenshot_2022-09-06_at_11.03.12.png)
+<div style="text-align: center;">
+    <img src="/Screenshot_2022-09-06_at_11.03.12.png" alt="dd" width="600" height="350">
+</div>
 
-![Screenshot 2022-09-06 at 11.59.54.png](../../../public/Screenshot_2022-09-06_at_11.59.54.png)
+<div style="text-align: center;">
+    <img src="/Screenshot_2022-09-06_at_11.59.54.png" alt="dd" width="600" height="350">
+</div>
+
 
 ## Bias-Variance Decomposition
 
@@ -102,6 +110,10 @@ We want to minimise $E(Y_0-\hat f(x_0))^2$  (the loss function, MSE in linear re
 
 In this proof, we show that MSE can be decomposed into bias and variance of the estimator, which shows that minimisation of the loss function has a trade off between minimising bias and variance. Because it ends with bias^2 + variance, you can see that it is a trade off.
 
-![Screenshot 2022-10-23 at 13.04.53.png](../../../public/Screenshot_2022-10-23_at_13.04.53.png)
+<div style="text-align: center;">
+    <img src="/Screenshot_2022-10-23_at_13.04.53.png" alt="dd" width="600" height="350">
+</div>
 
-![Screenshot 2022-10-23 at 13.05.12.png](../../../public/Screenshot_2022-10-23_at_13.05.12.png)
+<div style="text-align: center;">
+    <img src="/Screenshot_2022-10-23_at_13.05.12.png" alt="dd" width="600" height="350">
+</div>

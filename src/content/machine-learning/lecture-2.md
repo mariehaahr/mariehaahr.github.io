@@ -11,8 +11,6 @@ Subject: Intro to statistical Learning, Linear Regression
 
 ## Reducible Error and Irreducible Error
 
-see also [here](https://www.notion.so/GENERAL-87eeddb0f5064c3ea77b3e24cb83693d?pvs=21) a description of irreducible error.
-
 The accuracy of $\hat{Y}$ as a prediction for $Y$ depends on two quantities, which we will call the reducible error and the irreducible error. In general, reducible $\hat f$ will not be a perfect estimate for $f$, and this inaccuracy will introduce error some error. This error is reducible because we can potentially improve the accuracy of $\hat f$ by using the most appropriate statistical learning technique to error estimate $f.$
 
 Y is also a function of $ϵ$, which, by definition, cannot be predicted using $X$. Therefore, variability associated with $ϵ$ also affects the accuracy of our predictions. This is known as the irreducible error, because no matter how well we estimate $f$, we cannot reduce the error introduced by $ϵ$.
@@ -43,7 +41,9 @@ Imagine we wanted to predict the mouse length from both the weight of the mouse 
 ******1)****** The first thing you do is you fit a line to the data with Least Squares. 
 - You draw a horizontal line through the data and calculate the $RSS$. You rotate the line and calculate the $RSS$ again. You keep doing that until you can make a plot of the rotations against the $RSS$s from those rotations.
 
-![Screenshot 2022-10-19 at 10.06.48.png](../../../public/Screenshot_2022-10-19_at_10.06.48.png)
+<div style="text-align: center;">
+    <img src="/Screenshot_2022-10-19_at_10.06.48.png" alt="dd" width="600" height="350" style="text-align: center;" >
+</div>
 
 ******2)****** Then you calculate $R^2$
 
@@ -165,7 +165,11 @@ For any given phenomenon, the bias term we include in our equations is meant to 
 
 In linear models there is an easy way of controlling these errors - through regularisation. OLS is known to give unbiased results with low variance as compared to non linear models. **************Ridge************** and **********Lasso********** gives biased results with much lower variance than OLS. 
 
-![Screenshot 2022-10-19 at 09.52.32.png](../../../public/Screenshot_2022-10-19_at_09.52.32.png)
+
+
+<div style="text-align: center;">
+    <img src="/Screenshot_2022-10-19_at_09.52.32.png" alt="dd" width="600" height="350">
+</div>
 
 The bullseye is the true value we want to predict and the blue dots are what the model actually predicts. In
 
@@ -175,7 +179,10 @@ The term ****************************inductive bias**************************** 
 
 The ****************variance**************** of an estimator is another important effect. Imagine we gave several draws of a dataset, coming from the same distribution (or the same population, or true function). 
 
-![Untitled](../../../public/Untitled.png)
+
+<div style="text-align: center;">
+    <img src="/Untitled.png" alt="dd" width="600" height="350">
+</div>
 
 Here we see the 3 different drawn datasets, in blue, green and red. Here we have the mean fitted as a function to predict new points in the first picture, a linear regression in the second picture, and lastly a three degree polynomial fitted. If our predictions vary too wildly (like in the third plot), that suggests that our performance on new data will also be poor. High variance is exactly the ****overfitting effect.**** To balance these effects, we have to choose the right model complexity. Here we can use all these methods like hold-out data, where we use the test data to estimate the model’s future performance (on the test set). We can then compare several different models and complexities and choose the one that performs the best. 
 

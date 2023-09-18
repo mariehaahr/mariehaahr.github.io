@@ -1,8 +1,8 @@
 ---
 title: 'Exercises - Week 2'
-description: 'Lorem ipsum dolor sit amet'
+description: 'Exercises for week 2 - NA'
 pubDate: 'Sep 09 2023'
-heroImage: '/na_ex/second.png'
+heroImage: 'pink-network.avif'
 ---
 
 ### 5.1  

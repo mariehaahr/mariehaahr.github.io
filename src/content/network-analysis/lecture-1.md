@@ -170,7 +170,10 @@ In the classical example, you might have three variables: the probability of rai
 
 The way that they work is that the weight on each node of the output layer is the answer the model is giving. See more page 65
 
-![Screenshot 2022-08-31 at 15.26.18.png](../../../public/Screenshot_2022-08-31_at_15.26.18.png)
+
+<div style="text-align: center;">
+    <img src="/Screenshot_2022-08-31_at_15.26.18.png" alt="dd" width="600" height="350">
+</div>
 
 ## Summary of Chapter 4
 

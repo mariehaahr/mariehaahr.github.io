@@ -44,9 +44,15 @@ The simplest makeover we can give to the adjacency matrix is to convert it into 
 
 **Stochastic Adjacency** - what is the prob to go from any node to any other node in 1 step. A/A.sum(axis=1). You start from the normal adjacency matrix.
 
-![Screenshot 2022-09-08 at 10.31.47.png](../../../public/Screenshot_2022-09-08_at_10.31.47.png)
 
-![Screenshot 2022-09-08 at 10.32.03.png](../../../public/Screenshot_2022-09-08_at_10.32.03.png)
+<div style="text-align: center;">
+    <img src="/Screenshot_2022-09-08_at_10.31.47.png" alt="dd" width="300" height="350">
+</div>
+
+<div style="text-align: center;">
+    <img src="/Screenshot_2022-09-08_at_10.32.03.png" alt="dd" width="300" height="350">
+</div>
+
 
 Converting an adjacency matrix into a stochastic matrix is normalising it (dividing each entry by the sum of its corresponding row, each of the rows sums to one). But what is the usefulness of these?
 
@@ -60,7 +66,10 @@ Is a matrix telling you what are the relations between two classes of objects. I
 
 Zeros everywhere in the matrix, and the $i$’th diagonal element is the degree of node $i$.
 
-![Screenshot 2022-09-08 at 10.34.22.png](../../../public/Screenshot_2022-09-08_at_10.34.22.png)
+
+<div style="text-align: center;">
+    <img src="/Screenshot_2022-09-08_at_10.34.22.png" alt="dd" width="600" height="350">
+</div>
 
 ## The Laplacian
 
@@ -113,7 +122,10 @@ Instead of putting the eigenvalues in decreasing order, we put then in increasin
 
 The first non-zero eigenvalue of the order of eigenvalues tells you the solution to the problem called the normalised cut. (8.3 mincut problem)
 
-![Screenshot 2022-09-08 at 11.43.31.png](../../../public/Screenshot_2022-09-08_at_11.43.31.png)
+
+<div style="text-align: center;">
+    <img src="/Screenshot_2022-09-08_at_11.43.31.png" alt="dd" width="600" height="350">
+</div>
 
 It tells you which side of the cut the node is and how far away from the cut. 
 
