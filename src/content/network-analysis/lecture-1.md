@@ -27,12 +27,6 @@ heroImage: '/blog-placeholder-3.jpg'
 
 Readings: Introduction to the course. Chapters 3 & 4 in "The Atlas for the Aspiring Network Scientist”
 
-**Outline for the lecture**
-
-- Course & Exam details
-- Basic graph model and its limitations
-- Extensions to the graph: directed, weighted, bipartite, multilayer, dynamic, hyper
-
 # 3 Basic Graphs
 
 Edge weights can be interpreted in two opposite ways, depending on what the network is representing. They can be considered the *proximity* between the two nodes or their *distance*.
