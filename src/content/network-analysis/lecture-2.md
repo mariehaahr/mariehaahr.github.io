@@ -5,11 +5,18 @@ pubDate: 'Sep 09 2023'
 heroImage: '/blog-placeholder-3.jpg'
 ---
 
-# Lecture 2
 
-Type: Lecture
+#### Table of contents
+
+- [Adjacency Matrix](#51-adjacency-matrix)
+- [Matrix Multiplication](#matrix-multiplication)
+- [Stochastic Matrices](#stochastic-matrices)
+- [Incidence Matrices](#incidence-matrices)
+- [The Laplacian](#the-laplacian)
+- [Paths & Walks](#7-paths--walks)
+- [Notes from Lecture](#notes-from-lecture)
+
 Readings: TAANS, Chapters 5, 7, & 8 (minus sections 5.4, 8.2, 8.3, 8.5)
-Subjects: Matrices, Linear Algebra, Paths & Walks
 
 ## 5.1 Adjacency Matrix
 

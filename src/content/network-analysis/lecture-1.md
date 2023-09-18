@@ -5,11 +5,27 @@ pubDate: 'Sep 08 2023'
 heroImage: '/blog-placeholder-3.jpg'
 ---
 
+#### Table of contents
 
-# Lecture 1
+- [3 Basic Graphs](#3-basic-graphs)
+- [Extended Graphs](#extended-graphs)
+  - [Bipartite graphs](#bipartite-graphs)
+  - [Multilayer Graphs](#multilayer-graphs)
+    - [One-to-one](#one-to-one)
+    - [Many-to-many](#many-to-many)
+    - [Interlayer coupling](#interlayer-coupling)
+    - [Signed Networks](#signed-networks)
+    - [Positive and Negative Relationships](#positive-and-negative-relationships)
+  - [Hypergraphs](#hypergraphs)
+  - [Dynamic Graphs](#dynamic-graphs)
+  - [Network Types](#network-types)
+    - [Simple Networks](#simple-networks)
+    - [Complex Networks](#complex-networks)
+    - [An Example of the Bayesian Network](#an-example-of-the-bayesian-network)
+    - [Neural Networks](#neural-networks)
+  - [Summary of Chapter 4](#summary-of-chapter-4)
 
 Readings: Introduction to the course. Chapters 3 & 4 in "The Atlas for the Aspiring Network Scientist”
-Content: Graph Basics, Hypergraphs, dynamic graphs
 
 **Outline for the lecture**
 
@@ -45,7 +61,7 @@ Bipartite networks are only defined for *qualitative* attributes, *not quantitat
 
 ### One-to-one
 
-Sometimes also called ************************************multiplex networks************************************. 
+Sometimes also called **multiplex networks**. 
 
 $$
 G=(V,E,L)
@@ -60,7 +76,7 @@ However, in this case, we can add a “type” to each connection, making them q
 
 This strategy rests on the assumption that there is a one-to-one node mapping between the layers of the network. 
 
-### ****************Many-to-many****************
+### Many-to-many
 
 Sometimes called “networks of networks”, because each layer can be seen as a distinct network, and the interlayer couplings are relationships between different networks.
 

@@ -5,16 +5,43 @@ pubDate: 'Sep 13 2023'
 heroImage: '/blog-placeholder-3.jpg'
 ---
 
-# Lecture 3
+#### Table of contents
 
-Readings: TAANS, Chapters 6, 9, 10 & 11 (minus sections 9.4, 10.5)
-Subjects: Degree, Degree distr., Density, clustering, paths, basic metrics
+- [6 Degree](#6-degree)
+    - [Bipartite](#bipartite)
+    - [Multigraph](#multigraph)
+    - [Multilayer](#multilayer)
+    - [Hypergraph](#hypergraph)
+  - [6.2 Degree Distributions](#62-degree-distributions)
+    - [How to generate and visualise a proper degree distribution](#how-to-generate-and-visualise-a-proper-degree-distribution)
+  - [Power laws and scale free networks](#power-laws-and-scale-free-networks)
+    - [Testing for the power law, in 2 ways](#testing-for-the-power-law-in-2-ways)
+    - [“almost” powerlaws](#almost-powerlaws)
+- [9. Density](#9-density)
+  - [9.2 Clustering Coefficient](#92-clustering-coefficient)
+  - [9.3 Cliques](#93-cliques)
+  - [9.4 Independent Sets](#94-independent-sets)
+- [10. Shortest Paths](#10-shortest-paths)
+  - [10.3 Path Length Distribution](#103-path-length-distribution)
+    - [Diameter](#diameter)
+  - [Average](#average)
+    - [Minimum Spanning Tree](#minimum-spanning-tree)
+- [11. Node Ranking](#11-node-ranking)
+  - [11.1 Closeness](#111-closeness)
+    - [The behaviour of closeness centrality compared to degree](#the-behaviour-of-closeness-centrality-compared-to-degree)
+  - [11.2 Betweenness](#112-betweenness)
+  - [11.3 Reach](#113-reach)
+    - [HITS](#hits)
+    - [Harmonic Centrality](#harmonic-centrality)
 
-# 6 Degree
+
+Readings: TAANS, Chapters 6, 9, 10 & 11 (minus sections 9.4, 10.5)  
+
+## 6 Degree
 
 **Node strength / weighted degree:** The total weight incident into a node. In a weighted directed graph, it is the total weight of the edges going into that specific node.
 
-### Bipartite degree
+#### Bipartite
 
 There is a change in the matrix representations that is worthwhile to point out, when talking about degrees. 
 
@@ -25,29 +52,29 @@ You can fix this problem in 2 ways:
 - Look at the column sums
 - Look at the row sums of $A^T$
 
-### Multigraph
+#### Multigraph
 
 Since we allow parallel edges, you can follow 2 distinct connections and end up in the same neighbour. Keep the number of neighbours and the degree (number of connections of a node) to them selves. $k_u \ne |N_u|$.
 
-### Multilayer
+#### Multilayer
 
 Here there are some connection you shouldn’t count. Normally you wouldn’t count the interlayer coupling connections as part of the degree. Counting these connection wouldn’t give you any meaningful information. (since the connection wont lead you to a neighbour, but a different version of yourself, kinda).
 
 **Versatility -** the ability of a node to be a relevant central node in different layers.
 
-### Hypergraph
+#### Hypergraph
 
 The degree in a hyper-graph is the number of hyper-edges to which a node belongs. Or, the number of its hyper-connections.
 
 The number of neighbours has no relationship whatsoever with the number of connections. 
 
-## 6.2 Degree Distributions
+### 6.2 Degree Distributions
 
 A degree distribution is a degree scatter plot, the degree on the x-axis and the number of nodes on the y-axis.
 
 Commonly, one would normalise the y-axis by dividing its values by the number of nodes in the network, and the y-axis is the probability if a node to have a degree equal to $k$.
 
-### How to generate and visualise a proper degree distribution
+#### How to generate and visualise a proper degree distribution
 
 ![Screenshot 2022-09-14 at 15.31.17.png](../../../public/Screenshot_2022-09-14_at_15.31.17.png)
 
@@ -65,7 +92,7 @@ BUT you are forced to make a decision on the binning, and you can trick yourself
 
 We can transform a degree histogram into a CCDF by changing the meaning of the y-axis. Rather than being the probability of finding a node of degree equal to *k*, in a CCDF this is the probability of finding a node of degree *k* or higher. This is not a scattergram any more, but a function, which helps us when we need to fit it.
 
-## Power laws and scale free networks
+### Power laws and scale free networks
 
 Many networks have a power law degree distribution, but rarely this is a pure power law: it is often shifted or truncated. Fitting a power law and finding the correct exponent is tricky and you should not do it using a linear regression: you should use specialised tools.
 
@@ -75,21 +102,21 @@ $$
 p(k) \sim k^{-\alpha}
 $$
 
-### Testing for the power law, in 2 ways
+#### Testing for the power law, in 2 ways
 
 - Exponent of the power law, what is the power? To do this, calculating a linear fit for the log-log space, very good r2 and p-value (WRONG for determining whether it follows the power law or not)
 - Does this network a power law in the distribution, do this log-likelihood, how likely is function f to fit data? Allows p-value estimation between two alternatives. (RIGHT)
 
 Be aware of the lognormal and the power-law is very similar, and you can easily switch them around. 
 
-### “almost” powerlaws
+#### “almost” powerlaws
 
 It is rare to see “pure” power law in real life networks. 
 
 - Shifted power law, a power law excluding the head. “power law with a warm-up” (e.g facebook friends, you rarely see people with only 1 friend)      $p(k) \sim f(k)k^{-\alpha}$
 - Exponential cutoff, a power-law excluding the tail, “truncated power law”, (there are not enough people on twitter fx)     $p(k) \sim k^{-\alpha} e^{-\lambda k}$
 
-# 9. Density
+## 9. Density
 
 Density is kinda the probability that a random node pair is connected. The number of edges that can exist, given the number of nodes. 
 
@@ -105,7 +132,7 @@ Real life network are far more sparse than this.
 
 **General pattern:** The density of a network seems to go down as you increase the number of nodes. 
 
-## 9.2 Clustering Coefficient
+### 9.2 Clustering Coefficient
 
 ![Screenshot 2022-09-14 at 16.18.47.png](../../../public/Screenshot_2022-09-14_at_16.18.47.png)
 
@@ -145,13 +172,13 @@ $$
 
 **OBS: There is a big difference in the average clustering coefficient and the global clustering coefficient!!**
 
-## 9.3 Cliques
+### 9.3 Cliques
 
 A network will contain many subsets of nodes where all possible edges is among the edges. This is called a clique.
 
 ![Screenshot 2022-09-14 at 16.39.18.png](../../../public/Screenshot_2022-09-14_at_16.39.18.png)
 
-## 9.4 Independent Sets
+### 9.4 Independent Sets
 
 Anti-cliques, independent sets, is a set of nodes none of which are connected to each other. 
 
@@ -167,9 +194,9 @@ A maximal independent set, just like a maximal clique, is an independent set to 
 
 On the other hand, the maximum independent set is simply the largest possible independent set you can have in your network. In Figure 9.10, the red set is the maximum independent set, or at least one of the many possible independent sets of size 3. Finding the largest possible independent set is an interesting problem, because it tells you something about the connectivity of the graph
 
-# 10. Shortest Paths
+## 10. Shortest Paths
 
-## 10.3 Path Length Distribution
+### 10.3 Path Length Distribution
 
 Knowing the length distribution of all shortest paths in the network, conveys a lot of information about its connectivity. 
 
@@ -177,7 +204,7 @@ A tight distribution with little deviation implies that all nodes are more or le
 
 ![Screenshot 2022-09-14 at 17.59.11.png](../../../public/Screenshot_2022-09-14_at_17.59.11.png)
 
-### Diameter
+#### Diameter
 
 The rightmost column of the histogram in the figure, we have the number of shortest paths of maximum length. This is the diameter of the network. The worst case for reachability in the network.
 
@@ -202,17 +229,17 @@ Other measures derived from the shortest path length distribution are:
 - Eccentricity
 - Radius of a network
 
-### Minimum Spanning Tree
+#### Minimum Spanning Tree
 
 A minimum spanning tree is a tree connecting all nodes in the network which minimises the sum of edge weights.
 
-# 11. Node Ranking
+## 11. Node Ranking
 
 The degree of a node does not necessarily convey all information of the node importance, maybe the a node with a low degree is the key element of two large groups, and if you remove that specific node, the groups would be isolated?
 
 Here are some measures for that.
 
-## 11.1 Closeness
+### 11.1 Closeness
 
 The closeness centrality of a node $v$, is all the shortest paths starting from that node to every possible destination in the network. Each of these paths has a length $(|P_{uv}|)$. We sum these lengths and average that value over the number of all possible destinations (which is the number of nodes in the network minus one).
 
@@ -226,13 +253,13 @@ The closeness centrality of $v$ is nothing more than its inverse average path le
 
 The advantage of closeness centrality is that it has a spatial intuition: the closer you are on average to anybody, the more central you are. Exactly like standing in the middle of a room makes you closer on average to each member of the crowd in a party than standing in a corner.
 
-### The behaviour of closeness centrality compared to degree
+#### The behaviour of closeness centrality compared to degree
 
 How can two nodes with very low degree – for instance equal to one – have different closeness centrality values so that they end up distributing normally instead of on a skewed arrangement? One possible explanation is that edge creation is a lottery. The many nodes with degree equal to one that you have in broad degree distributions can get lucky with their choice of neighbour. Sometimes, like in the case of the green node in the figure below, the neighbour is a hub. The green node’s closeness centrality will then be high, because it is just one extra hop away from the hub itself – which is very central. Sometimes the new node will attach itself to the periphery – like the blue node in the figure below –, and thus have a very low closeness centrality.
 
 ![Screenshot 2022-09-14 at 18.29.14.png](../../../public/Screenshot_2022-09-14_at_18.29.14.png)
 
-## 11.2 Betweenness
+### 11.2 Betweenness
 
 Differently from closeness, with betweenness we are not counting distances, but paths. If we want to know the betweenness of node $v$, we count the number of paths passing through $v$ - but of which $v$ is neither an origin nor a destination.
 
@@ -240,15 +267,15 @@ The concept underlying betweenness centrality can be extended to go beyond nodes
 
 The more shortest paths that passes through you, the more important you are.
 
-## 11.3 Reach
+### 11.3 Reach
 
 Reach centrality is only defined for directed networks. The local
 reach centrality of a node *v* is the fraction of nodes in a network that you can reach starting from $*v*$.
 
-### HITS
+#### HITS
 
 HITS is another famous eigenvector centrality measure for directed networks, which divides nodes in two classes: hubs, who dominate out-degree centrality; and authorities, who dominate in-degree centrality.
 
-### Harmonic Centrality
+#### Harmonic Centrality
 
 Harmonic centrality is a version of closeness centrality which solves the issue of networks with multiple connected components. In such networks, there are pairs of nodes that cannot reach each other, thus other approaches based on shortest paths and random walks wouldn’t work.
