@@ -4,6 +4,16 @@ description: 'Graph Basics, Hypergraphs, dynamic graphs'
 pubDate: 'Sep 08 2023'
 heroImage: '/blog-placeholder-3.jpg'
 ---
+<!-- <style>
+
+.anchor{
+  display: block;
+  position: relative;
+  top: -250px;
+}  
+</style>
+ -->
+
 
 #### Table of contents
 
@@ -25,7 +35,7 @@ heroImage: '/blog-placeholder-3.jpg'
     - [Neural Networks](#neural-networks)
   - [Summary of Chapter 4](#summary-of-chapter-4)
 
-Readings: Introduction to the course. Chapters 3 & 4 in "The Atlas for the Aspiring Network Scientist”
+
 
 # 3 Basic Graphs
 
@@ -140,6 +150,7 @@ To deal with dynamic information when we want to create a static view of the net
     ![Screenshot 2022-08-31 at 15.00.43.png](../../../public/Screenshot_2022-08-31_at_15.00.43.png)
     
 
+<a class="anchor" id="network-types"></a>
 ## Network Types
 
 ### Simple Networks

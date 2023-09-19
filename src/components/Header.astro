@@ -37,9 +37,10 @@ import { SITE_TITLE } from '../consts';
 		padding: 0 1em;
 		background: white;
 		box-shadow: 0 2px 8px rgba(var(--black), 5%);
-		position: fixed;
+		position: fixed; 
 		width: 98%;
-		
+		z-index: 1;
+		/* backdrop-filter: blur(16px); */
 	}
 	h2 {
 		margin: 0;
@@ -49,6 +50,9 @@ import { SITE_TITLE } from '../consts';
 	h2 a,
 	h2 a.active {
 		text-decoration: none;
+	}
+	h2 a:hover{
+		color: hotpink;
 	}
 	nav {
 		display: flex;
