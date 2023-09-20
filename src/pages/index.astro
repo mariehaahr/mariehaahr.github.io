@@ -3,6 +3,13 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+import { getCollection } from 'astro:content';
+import FormattedDate from '../components/FormattedDate.astro';
+
+const posts = (await getCollection('na-exercises')).sort(
+	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
 ---
 
 <!doctype html>
@@ -13,17 +20,117 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			padding-top: 100px;
 		}
 		</style>
+
+</html>
+
+<!doctype html>
+<html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			main {
+				width: 960px;
+				padding-top: 100px;
+			}
+			ul {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 2rem;
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				
+			}
+			ul li {
+				width: calc(100% - 20px);
+			}
+			ul li * {
+				text-decoration: none;
+				transition: 0.2s ease;
+				
+			}
+			ul li img {
+				margin-bottom: 0.5rem;
+				border-radius: 12px;
+				
+			}
+			ul li a {
+				display: block;
+			
+			}
+			.title-box {
+				background-color: #f2f2f2;
+				padding: 1rem;
+				border-radius: 12px;
+				box-shadow: var(--box-shadow);
+			}
+}
+			.title {
+				margin: 0;
+				color: rgb(var(--black));
+				line-height: 1;
+			}
+			.date {
+				margin: 0;
+				color: rgb(var(--gray));
+			}
+			ul li a:hover h4,
+			ul li a:hover .date {
+				color: rgb(var(--accent));
+			}
+			ul a:hover img {
+				box-shadow: var(--box-shadow);
+			}
+			@media (max-width: 1200px) {
+				ul {
+					gap: 0.5em;
+				}
+				ul li {
+					width: 100%;
+					text-align: center;
+					
+				}
+			}
+		</style>
+
 	</head>
 	<body>
-		<Header title={SITE_TITLE} />
-		<main>
-			<h1>Hello!</h1>
-			<p>
-				Here you can explore my lecture notes on various topics and discover more about me, and my professional journey.
-			</p>
+		<Header/>
 
+
+			<main>
+				<h1>Hello!</h1>
+				<p>
+					Here you can explore my lecture notes on various topics and discover more about me, and my professional journey.
+				</p>
+				<h5><b>Quick links:</b></h5>
+	
+	
+			<section>
+				<ul>
+
+							<li>
+								<a href={`/network-analysis/exercises/week4/`}>
+									{/*<img width={1200} height={100} src={post.data.heroImage} alt=""/> */}
+									<div class="title-box">
+										<h4 class="title">Network Analysis - Week 4 Exercises</h4> 
+									</div>
+									</p>
+								</a>
+								<br>
+								<a href={`/network-analysis/lecture-4/`}>
+									{/*<img width={1200} height={100} src={post.data.heroImage} alt=""/> */}
+									<div class="title-box">
+										<h4 class="title">Network Analysis - Lecture 4 Notes</h4> 
+									</div>
+									</p>
+								</a>
+							</li>
+					
+					
+				
+				</ul>
+			</section>
 		</main>
 		<Footer />
 	</body>
