@@ -1,6 +1,6 @@
 ---
 title: 'Lecture 3'
-description: 'Linear regression'
+description: 'Bias-Var trade off, F-test, reducible+irreducible error, Bias-Var Decomposition'
 pubDate: 'Sep 09 2022'
 heroImage: '/blog-placeholder-3.jpg'
 ---

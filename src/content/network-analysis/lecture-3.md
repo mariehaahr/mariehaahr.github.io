@@ -1,10 +1,10 @@
 ---
 title: 'Lecture 3'
-description: 'GDegree, Degree distr., Density, clustering, paths, basic metrics'
+description: 'Degree, Degree distr., Density, clustering, paths, basic metrics'
 pubDate: 'Sep 13 2023'
-heroImage: '/blog-placeholder-3.jpg'
+heroImage: '/output2.png/'
 ---
-
+ 
 #### Table of contents
 
 - [6 Degree](#6-degree)

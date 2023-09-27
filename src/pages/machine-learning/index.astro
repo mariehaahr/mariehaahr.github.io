@@ -5,6 +5,7 @@ import Footer from '../../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
+import description from '../../components/description.astro';
 
 const posts = (await getCollection('machine-learning')).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
@@ -29,6 +30,7 @@ const posts = (await getCollection('machine-learning')).sort(
 				font-size: 50px;
 				
 			}
+
 			ul {
 				display: flex;
 				flex-wrap: wrap;
@@ -69,9 +71,10 @@ const posts = (await getCollection('machine-learning')).sort(
 				color: rgb(var(--black));
 				line-height: 1;
 			}
-			.date {
+			.description {
 				margin: 0;
 				color: rgb(var(--gray));
+				font-size: 0.9rem;
 			}
 			ul li a:hover h4,
 			ul li a:hover .date {
@@ -102,7 +105,6 @@ const posts = (await getCollection('machine-learning')).sort(
 		<main>
 			<h4 class="title-main">Machine Learning</h4>
 			<section>
-
 				<ul>
 					<li>
 						<a href='/machine-learning/examprep/'>
@@ -115,9 +117,10 @@ const posts = (await getCollection('machine-learning')).sort(
 							<li>
 								<a href={`/machine-learning/${post.slug}/`}>
 									<img width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
+									<h4 class="title">{post.data.title}
+										<h5 class="description">{post.data.description}</h5>
+									</h4>
+										<!--- <SITE_DESCRIPTION {Fragment.post.data.description}> --->
 									</p>
 								</a>
 							</li>

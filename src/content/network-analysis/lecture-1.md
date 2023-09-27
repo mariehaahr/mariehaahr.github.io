@@ -2,7 +2,7 @@
 title: 'Lecture 1'
 description: 'Graph Basics, Hypergraphs, dynamic graphs'
 pubDate: 'Sep 08 2023'
-heroImage: '/blog-placeholder-3.jpg'
+heroImage: '/Screenshot_2022-08-31_at_15.10.52.png'
 ---
 <!-- <style>
 

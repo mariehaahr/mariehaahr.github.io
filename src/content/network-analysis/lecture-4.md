@@ -1,8 +1,8 @@
 ---
 title: 'Lecture 4'
-description: 'Random Graphs, Small Worls Model, Preferential Attachment, Link Selection, Configuration Model, LFR Benchmark, Statistical Signififance'
+description: 'Random Graphs, Small World Model, Preferential Attachment, Link Selection, Configuration Model, LFR Benchmark, Statistical Signififance'
 pubDate: 'Sep 18 2023'
-heroImage: '/blog-placeholder-3.jpg'
+heroImage: '/Screenshot_2022-09-22_at_11.10.02.png'
 ---
 
 #### Table of contents

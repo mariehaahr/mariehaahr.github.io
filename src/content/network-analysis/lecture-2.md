@@ -2,7 +2,7 @@
 title: 'Lecture 2'
 description: 'Matrices, Linear Algebra, Paths & Walks'
 pubDate: 'Sep 09 2023'
-heroImage: '/blog-placeholder-3.jpg'
+heroImage: '/Screenshot_2022-09-08_at_10.32.03.png'
 ---
 
 
