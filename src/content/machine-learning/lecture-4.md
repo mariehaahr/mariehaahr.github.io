@@ -2,11 +2,11 @@
 title: 'Lecture 4'
 description: 'Cross-Validation, Shrinkage & Bias-Variance Trade-off'
 pubDate: 'Sep 14 2022'
-heroImage: '/blog-placeholder-3.jpg'
+heroImage: '/lec4_ml.png'
 ---
+ 
 
-
-Readings:  ISLwR: 2.2.1-2, 5.1,  6.1-2  
+**Readings**: ISLwR: Chapter 2.2.1-2, 5.1, 6.1-2  
 
 #### Table of contents
 1. [Introduction](#introduction)

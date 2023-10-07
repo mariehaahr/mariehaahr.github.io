@@ -2,7 +2,7 @@
 title: 'Lecture 5'
 description: 'Bipartite Network Projection, Backboning, Sampling'
 pubDate: 'Sep 25 2023'
-heroImage: '/hairball.png'
+heroImage: '/lec5_na.png'
 ---
 
 

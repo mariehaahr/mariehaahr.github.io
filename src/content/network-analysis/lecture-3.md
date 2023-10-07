@@ -2,7 +2,7 @@
 title: 'Lecture 3'
 description: 'Degree, Degree distr., Density, clustering, paths, basic metrics'
 pubDate: 'Sep 13 2023'
-heroImage: '/output2.png'
+heroImage: '/lec3_na.png'
 ---
  
 #### Table of contents

@@ -1,11 +1,21 @@
 ---
 title: 'Lecture 3'
 description: 'Bias-Var trade off, F-test, reducible+irreducible error, Bias-Var Decomposition'
-pubDate: 'Sep 09 2022'
-heroImage: '/blog-placeholder-3.jpg'
+pubDate: 'Sep 12 2022'
+heroImage: '/lec3_ml.png'
 ---
 
-Contents: Bias-Var trade off, F-test, reducible+irreducible error, Bias-Var Decomposition
+**Readings**: Chapter 2 & 3 in Introduction to Statistical Learning
+
+#### Table of contents
+- [2.2.2 The Bias-Variance Trade-Off](#222-the-bias-variance-trade-off)
+  - [Reducible \& Irreducible Error](#reducible--irreducible-error)
+  - [Explanation of figures in bias-variance trade off](#explanation-of-figures-in-bias-variance-trade-off)
+- [F-test](#f-test)
+  - [Strategies for model selection](#strategies-for-model-selection)
+- [Influential Points](#influential-points)
+- [Bias-Variance Decomposition](#bias-variance-decomposition)
+  - [Explanation on the proof](#explanation-on-the-proof)
 
 ## 2.2.2 The Bias-Variance Trade-Off
 

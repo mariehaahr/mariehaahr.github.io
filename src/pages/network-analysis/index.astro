@@ -110,7 +110,7 @@ const posts = (await getCollection('network-analysis')).sort(
 		</style> 
 	</head>
 	<body>
-		<Header />
+		<Header /> 
 		<main>
 			<h4 class="title-main">Network Analysis</h4>
 			<section>
@@ -118,16 +118,14 @@ const posts = (await getCollection('network-analysis')).sort(
 					<li> 
 						<a href='/network-analysis/exercises/'>
 							<!-- <h4 class="title">Exercises</h4> -->
-							<img width={720} height={360} src='/new_network.png'/>
+							<img width={720} height={360} src='/new_exercises.png'/>
 						</a>
 					</li>
 					{
 						posts.map((post) => (
 							<li>
 								<a href={`/network-analysis/${post.slug}/`}>
-
 									<img width={720} height={360} src={post.data.heroImage} />
-
 									<h4 class="title">{post.data.title}
 										<h5 class="description">{post.data.description}</h5>
 									</h4>

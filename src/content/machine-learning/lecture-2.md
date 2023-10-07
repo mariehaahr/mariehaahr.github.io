@@ -2,10 +2,27 @@
 title: 'Lecture 2'
 description: 'Linear regression'
 pubDate: 'Sep 08 2022'
-heroImage: '/blog-placeholder-3.jpg'
+heroImage: '/lr_front.png'
 ---
 
-Subject: Intro to statistical Learning, Linear Regression
+**Readings**: Chapter 2 & 3 in Introduction to Statistical Learning
+
+#### Table of contents
+- [Statistical Learning](#statistical-learning)
+  - [Reducible Error and Irreducible Error](#reducible-error-and-irreducible-error)
+- [Linear Regression](#linear-regression)
+    - [The General Idea Behind Linear Regression](#the-general-idea-behind-linear-regression)
+    - [A little more complicated example also mentioned in the steps](#a-little-more-complicated-example-also-mentioned-in-the-steps)
+    - [A little recap](#a-little-recap)
+  - [3.1 Simple Linear Regression](#31-simple-linear-regression)
+  - [3.1.1 Estimating the Coefficients FOR SIMPLE LINEAR REGRESSION](#311-estimating-the-coefficients-for-simple-linear-regression)
+    - [Coefficient Estimates for The Least Squares FOR SIMPLE LINEAR REGRESSION](#coefficient-estimates-for-the-least-squares-for-simple-linear-regression)
+  - [3.1.2 Assessing the Accuracy of the Coefficient Estimates](#312-assessing-the-accuracy-of-the-coefficient-estimates)
+    - [The concept of bias in linear regression (from some website)](#the-concept-of-bias-in-linear-regression-from-some-website)
+- [Bias \& Variance in Linear Regression](#bias--variance-in-linear-regression)
+  - [Ridge](#ridge)
+  - [Lasso](#lasso)
+    - [The Standard Error](#the-standard-error)
 
 # Statistical Learning
 
@@ -181,7 +198,7 @@ The ****************variance**************** of an estimator is another importan
 
 
 <div style="text-align: center;">
-    <img src="/Untitled.png" alt="dd" width="600" height="350">
+    <img src="/Untitled123.png" alt="dd" width="600" height="350">
 </div>
 
 Here we see the 3 different drawn datasets, in blue, green and red. Here we have the mean fitted as a function to predict new points in the first picture, a linear regression in the second picture, and lastly a three degree polynomial fitted. If our predictions vary too wildly (like in the third plot), that suggests that our performance on new data will also be poor. High variance is exactly the ****overfitting effect.**** To balance these effects, we have to choose the right model complexity. Here we can use all these methods like hold-out data, where we use the test data to estimate the model’s future performance (on the test set). We can then compare several different models and complexities and choose the one that performs the best. 
