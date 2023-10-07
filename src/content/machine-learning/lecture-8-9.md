@@ -32,7 +32,6 @@ heroImage: '/lec89_ml.png'
 - [A Comparison of LDA, QDA and Naive Bayes](#a-comparison-of-lda-qda-and-naive-bayes)
 - [Kernel Density Estimate](#kernel-density-estimate)
     - [Seaborn KDE plot](#seaborn-kde-plot)
-    - [Kernel Density Estimation in Python](#kernel-density-estimation-in-python)
 
 # Bayes Theorem
 
@@ -414,7 +413,10 @@ $$
 \begin{align*} &\log\frac{P(Y=k|X=x)}{P(Y=K|X=x)} \\ &= \log \frac{\pi_k}{\pi_K}-\frac{1}{2}(\mu_k+\mu_K)^T \Sigma^{-1} (\mu_k-\mu_K) \\ &= a_{k0}+a_k^Tx \\ &= a_k + b_k^T x\end{align*}
 $$
 
-![Screenshot 2022-11-12 at 13.37.27.png](Generative%20Models%20&%20Bayes%20Theorem%207dcfe6c8fa174522ad737d2f62b67e47/Screenshot_2022-11-12_at_13.37.27.png)
+<div style="text-align: center;">
+    <img src="/Screenshot_2022-11-12_at_13.37.27.png" alt="dd" width="600" height="350" style="text-align: center;" >
+</div>
+
 
 The difference between linear logistic regression and LDA is that the linear logistic model only specifies the conditional distribution $Pr(Y=k|X=x)$. No assumption is made about $P(X)$ while the LDA model specifies the joint distribution of $*X*$ and $*Y*$.
 
@@ -458,5 +460,3 @@ Github with KDE univariate and bivariate: [https://github.com/kimfetti/Videos/bl
 
 # bivariate kde - 2 variables
 ```
-
-### Kernel Density Estimation in Python

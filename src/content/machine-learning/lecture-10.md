@@ -142,9 +142,14 @@ Each row in a confusion matrix represents an actual class, while each column rep
 
 A perfect classifier would only have true positives and true negatives. 
 
-![Untitled](Lecture%2010%204e86a30ee8f24751b07db5347355704f/Untitled3_10.png)
+<div style="text-align: center;">
+    <img src="/Untitled3_10.png" alt="dd" width="600" height="350" style="text-align: center;" >
+</div>
 
-![Untitled](Lecture%2010%204e86a30ee8f24751b07db5347355704f/Untitled1_10.png)
+
+<div style="text-align: center;">
+    <img src="/Untitled1_10.png" alt="dd" width="600" height="350" style="text-align: center;" >
+</div>
 
 ### The $F_1$ score
 
