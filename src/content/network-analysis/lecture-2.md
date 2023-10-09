@@ -50,7 +50,7 @@ The simplest makeover we can give to the adjacency matrix is to convert it into 
 </div>
 
 <div style="text-align: center;">
-    <img src="/Screenshot_2022-09-08_at_10.32.03.png" alt="dd" width="300" height="350">
+    <img src="/lec2_na.png" alt="dd" width="600" height="350">
 </div>
 
 
