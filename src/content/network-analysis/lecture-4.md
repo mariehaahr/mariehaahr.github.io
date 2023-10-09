@@ -79,10 +79,8 @@ Preferential attachment is a model that can generate a scale-free network (a net
 
 ***The key idea is that the probability of a new node forming a connection with an existing node is not uniform; it depends on the degree (number of connections) of the existing nodes.***
 
-<aside>
-💡 In other words, popular or well-connected nodes are more likely to attract new connections.
 
-</aside>
+💡 **In other words, popular or well-connected nodes are more likely to attract new connections.**
 
 #### Link selection
 
@@ -105,10 +103,7 @@ The way it works, is that:
 
 The Configuration Model provides a useful tool for statistical analysis and comparisons, allowing you to study various properties of networks based on a given degree sequence.
 
-<aside>
 💡 **The clustering coefficient of a configuration model tends to zero, which is very unrealistic**
-
-</aside>
 
 ## LFR Benchmark Model
 

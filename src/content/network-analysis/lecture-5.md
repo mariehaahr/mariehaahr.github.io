@@ -75,10 +75,9 @@ Optionally, you can add an extra step, where you evaluate the statistical signif
 
 In order to understand this problem, lets demonstrate with an authors example, a network of authors connected if they have coauthored a scientific paper together. If you only have written one single paper before this, and this is your second collaboration, you are a strong contributor since this represents 50% of your entire scientific output. But if instead, this was your hundredth collaboration, this paper only adds a little to your connection strength. Giving the same weight in these two different scenario is the saturation problem.
 
-<aside>
-📌 *We can exploit edge weights to solve the saturation problem.*
 
-</aside>
+📌 **We can exploit edge weights to solve the saturation problem.**
+
 
 In a vectorised projection, we want the adjacency matrix to contain non-zero values different than one. Here, we are considering the nodes as vectors, where each row is a node of type $V_1$, and each entry tells us whether or not it is connected to a node of type $V_2$. Simply a vector of zeros and ones. These vectors represent $V_1$ nodes, and we can then calculate the distance between 2 vectors, and this is how similar they are to each other. You can use the **********************euclidean distance**********************, **********************************cosine similarity**********************************, and ****************************************Pearson correlation****************************************.
 
@@ -119,14 +118,11 @@ There are two categories in network back-boning methods. *Structural* and *stati
 - So if you have a hairball network, you might want to sparsify you network. (also called pruning)
 - Maybe your network simply has too many connections to be computationally tractable and so you need to filter out the ones that are unlikely to affect your computations.
 
-<aside>
 📌 **The difference between summarisation and back-boning:**
 Network Back-boning can easily be confused with graph summarisation. Graph summarisation is the task of taking a large complex network and reducing its size so it can be described better.
 
-Network Back-boning you don’t merge nodes like in summarisation, you want to let the strong connections emerge, and preserve all the entities in your data.  
-In a nutshell, network back-boning wants to allow you to perform node- and global-level analyses, while graph summarisation only focuses on empowering meso-level analysis, where you lose sight of the single individual nodes.
+📌 Network Back-boning you don’t merge nodes like in summarisation, you want to let the strong connections emerge, and preserve all the entities in your data. In a nutshell, network back-boning wants to allow you to perform node- and global-level analyses, while graph summarisation only focuses on empowering meso-level analysis, where you lose sight of the single individual nodes.
 
-</aside>
 
 ## Structural back-boning approaches
 

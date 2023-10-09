@@ -60,10 +60,8 @@ In a simple scenario, you can estimate the probability of an edge to connect ali
 
 If we have a probability higher than 1 it implies homophily, meaning that nodes tend to connect to other nodes with the same attribute. And, of course, a probability below 1 then implies that the network is disassortative, and nodes don’t like to connect to similar nodes.
 
-<aside>
-💡 This simple method does not work when you have more that 1 possible attributes in your network.
+💡 **This simple method does not work when you have more that 1 possible attributes in your network.**
 
-</aside>
 
 ### More than 1 attribute
 
@@ -90,10 +88,9 @@ Since humans are social animals and tend to succumb to peer pressure, homophily 
 
 Before we talked about qualitative homophily, people with the same sex, gender, race tend to like each other. Now we talk about quantitative homophily, people with the same age, number of friends etc. tend to like each other.
 
-<aside>
-💡 Here we refer to quantitative homophily as assortativity and of course we refer to quantitative heterophily as disassortativity.
 
-</aside>
+💡 **Here we refer to quantitative homophily as assortativity and of course we refer to quantitative heterophily as disassortativity.**
+
 
 ## Degree Correlations
 
@@ -121,7 +118,7 @@ Core-periphery networks emerge when all nodes belong to a single group. Some nod
 
 ## Models
 
-Different way to extract core-periphery structures from your networks. But the two methods that are used the most, are the **********continuous model *********************and the ***************discrete model.***************
+Different way to extract core-periphery structures from your networks. But the two methods that are used the most, are the **continuous model** and the **discrete model.**
 
 ### Discrete
 
