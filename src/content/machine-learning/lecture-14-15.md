@@ -1,8 +1,8 @@
 ---
 title: 'Lecture 14 and 15'
-description: ''
+description: 'Support Vector Machines, hard margin, soft margin, proof for decision rule'
 pubDate: 'Oct 11 2023'
-heroImage: '/lec7_na.png'
+heroImage: '/lec1415_ml.png'
 ---
 
 **Readings:** ISL_wR Chapter 9, Hands-on Chapter 5, and StatQuest videos!
