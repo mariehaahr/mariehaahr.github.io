@@ -96,8 +96,6 @@ const posts = (await getCollection('na-exercises')).sort(
 	</head>
 	<body>
 		<Header/>
-
-
 			<main>
 				<h1>Hello!</h1>
 				<p>
@@ -108,37 +106,36 @@ const posts = (await getCollection('na-exercises')).sort(
 					Feel free to add an issue on my github or contact me if you have any feedback or any questions.
 				</p>
 				<h5><b>Quick links:</b></h5>
-	
-	
 			<section>
 				<ul>
-
+					{
 							<li>
-								<a href={`/network-analysis/lecture-7/`}>
+								<a href={`/network-analysis/lecture-8/`}>
 									{/*<img width={1200} height={100} src={post.data.heroImage} alt=""/> */}
 									<div class="title-box">
-										<h4 class="title">Network Analysis - Lecture 7 Notes</h4> 
+										<h4 class="title">Network Analysis - Lecture 8 Notes</h4> 
 									</div>
 									</p>
 								</a>
 								<br>
-								<a href={`/machine-learning/lecture-12/`}>
+								<a href={`/machine-learning/lecture-14-15/`}>
 									{/*<img width={1200} height={100} src={post.data.heroImage} alt=""/> */}
 									<div class="title-box">
-										<h4 class="title">Machine Learning - Ensemble Methods</h4> 
+										<h4 class="title">Machine Learning - Support Vector Machines</h4> 
 									</div>
 									</p>
 								</a>
 							</li>
-					
-					
-				
+					}
 				</ul>
 			</section>
 			<br>
-			<span style="color:grey; font-size: 0.75em"">Disclaimer: these notes are my own interpretation of what is needed for these courses and to pass the exam, and should
-				only serve as guidance. This will never replace the full content of the books and lectures.
-			</span>
+				<span style="color:grey; font-size: 0.75em">
+					Disclaimer: these notes are my own interpretation of what is needed 
+					for these courses and to pass the exam, and should
+					only serve as guidance. This will never replace the 
+					full content of the books and lectures.
+				</span>
 		</main>
 		<Footer />
 	</body>
