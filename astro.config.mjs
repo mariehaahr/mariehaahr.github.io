@@ -8,6 +8,10 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
+	// experimental: {
+	// 	viewTransitions: true
+	// },
+	prefetch: true,
 	site: 'https://mariehaahr.github.io',
 	integrations: [mdx(), sitemap()],
 	markdown: {
