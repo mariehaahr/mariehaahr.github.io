@@ -69,20 +69,7 @@ $$
 proj_{a_1} = a_1^T X_ia
 $$
 
-Where $a_1^TX_i$ is the magnitude and $a$ is the unit vector. Then the mean of all the projection will be:
-
-$$
-\bar {proj} = a_1^T \bar X a
-$$
-
-The variance of the projection then:
-
-$$
-\frac{1}{n} \sum_{i=1}^n (a_1^T X_i - a_1^T \bar X)^2
-$$
-
-Since the formula for variance is $\frac{1}{n} \sum (x_i-\bar x)^2$. If we rewrite this equation a bit, we get:
-
+Where $a_1^TX_i$ is the magnitude and $a$ is the unit vector. 
 
 <div style="text-align: center;">
     <img src="/Screenshot_2022-11-20_at_15.06.17.png" alt="dd" width="500" height="350" style="text-align: center;" >
@@ -100,6 +87,22 @@ Here we have a lot of variance preserved in the projection onto the blue vector.
 <span style="color: grey; font-style: italic;">
 Here, we project the data onto another vector, where the variance is not very well preserved.
 </span>
+
+
+Then the mean of all the projection will be:
+
+$$
+\bar {proj} = a_1^T \bar X a
+$$
+
+The variance of the projection then:
+
+$$
+\frac{1}{n} \sum_{i=1}^n (a_1^T X_i - a_1^T \bar X)^2
+$$
+
+Since the formula for variance is $\frac{1}{n} \sum (x_i-\bar x)^2$. If we rewrite this equation a bit, we get:
+
 $$
 \text{factor out } a_1^T: \\ \frac{1}{n} \sum_{i=1}^n [a_1^T(X_i- \bar X)]^2 \\ \text{write out the square term} \\ = \frac{1}{n} \sum_{i=1}^n a_1^T(X_i-\bar X)\cdot(X_i-\bar X)^T a_1 \\ \text{Since this is just number, it does not matter where I take the transpose, that is why we can write it like that} \\ = a_1^T \underbrace{\left[ \frac{1}{n} \sum^n_{i=1} (X_i-\bar X)(X_i-\bar X)^T \right]}_{\text{The closed form formula for covariance}} a_1
 $$
