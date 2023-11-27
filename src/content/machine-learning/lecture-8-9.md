@@ -53,15 +53,14 @@ When we are in the side of Machine Learning where we work with Generative Models
 
 A Generative approach is an alternative and less direct approach (than logistic regression) to estimating the probabilities $(P(Y=k|X=x)$.
 
-When working with **************generative models**************, we model the distribution of the predictors $X$ separately in each of the response classes. 
+When working with **generative models**, we model the distribution of the predictors $X$ separately in each of the response classes. 
 
-<aside>
-📌 **Discriminative models** make predictions on the unseen data based on conditional probability and can be used either for classification or regression.
+
+ 📌 **Discriminative models** make predictions on the unseen data based on conditional probability and can be used either for classification or regression.
 On the contrary, a **generative model** focuses on the distribution of a dataset to return a probability for a given example.
 
-</aside>
 
-We use **************************Bayes Theorem************************** to flip these distributions around into estimates for $P(Y=k|X=x)$. 
+We use **Bayes Theorem** to flip these distributions around into estimates for $P(Y=k|X=x)$. 
 
 When the distribution of X within each class is assumed to be normal, it turns out that the model is very similar in form to logistic regression.
 
@@ -105,10 +104,9 @@ When using a non-parametric methods, we don’t make any explicit assumptions ab
 
 # Linear Discriminant Analysis
 
-<aside>
-📌 The main thing about LDA is that we assume that $f_k(x)$ is gaussian, there is class specific means and ********************************************************************************we assume that the variances are equal: $\sigma^2_1 = ... = \sigma^2_K$.**
 
-</aside>
+📌 The main thing about LDA is that we assume that $f_k(x)$ is gaussian, there is class specific means and **we assume that the variances are equal: $\sigma^2_1 = ... = \sigma^2_K$.**
+
 
 ## For 1 Predictor
 
@@ -128,8 +126,7 @@ Here $\mu_k$ and $\sigma_k^2$ are the mean and variance parameters for the $k$th
     
     **By making this assumption, the classifier becomes linear.**
     
-
-************************************************************************This is where Bayes Theorem plays a role.************************************************************************ If we plug the gaussian form (4.16) into bayes theorem, we have this:
+**This is where Bayes Theorem plays a role.** If we plug the gaussian form (4.16) into bayes theorem, we have this:
 
 $$
 p_k(x) = \frac{\pi_k \frac{1}{\sqrt{2\pi\sigma}}e^{-\frac{1}{2 \sigma^2} (x-\mu_k)^2}}{\sum_{l=1}^K \pi_l \frac{1}{\sqrt{2\pi\sigma}}e^{-\frac{1}{2 \sigma^2} (x-\mu_l)^2}} \ \ \ \ \ (4.17)
@@ -182,10 +179,8 @@ The word Linear in the classifiers name, states from the fact that the discrimin
 
 In other words, the LDA classifier’s error rate is pretty close to Bayes error rate, and performs pretty well.
 
-<aside>
-📌 To reiterate, the LDA classifier results from **assumin**g that the observations within each class come from a **normal distribution** with a **class-specific mean** and a **common variance** $σ^2$, and plugging estimates for these parameters into the **Bayes classifier.**
 
-</aside>
+📌 To reiterate, the LDA classifier results from **assumin**g that the observations within each class come from a **normal distribution** with a **class-specific mean** and a **common variance** $σ^2$, and plugging estimates for these parameters into the **Bayes classifier.**
 
 ## Linear Discriminant Analysis For > 1 Predictor.
 
@@ -211,7 +206,7 @@ $$
 f_k(x)=\frac{1}{(2\pi)^{p/2} |\Sigma|^{1/2}} exp(-\frac{1}{2}(x-\mu_k)^T \Sigma^{-1}(x-\mu_k))
 $$
 
-********OBS:******** The $\Sigma$ in the equation is the covariance matrix, not sum!
+**OBS:** The $\Sigma$ in the equation is the covariance matrix, not sum!
 
 
 <div style="text-align: center;">
@@ -224,7 +219,7 @@ $$
 \hat Y (x)= \delta_k(x) = x^T \Sigma^{-1} \mu_k - \frac{1}{2} \mu_k^T \Sigma^{-1} \mu_k + \log\pi_k
 $$
 
-**This is the final classifier. Given any $*x*$, you simply plug into this formula and see which $*k$* maximises this.**
+*This is the final classifier. Given any $x$, you simply plug into this formula and see which $k$ maximises this.*
 
 LDA gives you a linear boundary because the quadratic term is dropped.
 
@@ -278,15 +273,12 @@ When $\Sigma=1$, all variables are independent and standard normal, and the maha
 
 # Quadratic Discriminant Analysis
 
-<aside>
-📌 The main thing about QDA is that we assume that the observations from each class are drawn from a gaussian distribution, however unlike LDA, QDA ********************************************************************************************assumes that each class has its own covariance matrix.
-$X \sim N(\mu_k, \Sigma_k)$**
 
-</aside>
+📌 The main thing about QDA is that we assume that the observations from each class are drawn from a gaussian distribution, however unlike LDA, QDA **assumes that each class has its own covariance matrix. $X \sim N(\mu_k, \Sigma_k)$**
 
 Because the QDA allows for more flexibility for the covariance matrix, it tends to fit the data better than LDA, **but then it has more parameters to estimate**. The number of parameters increases significantly with QDA. Because, with QDA, you will have a separate covariance matrix for every class. If you have many classes and not so many sample points, this can be a problem.
 
-Here we follow ******************bayes theorem****************** and assign an observation $X=x$ to the class where this equation is largest:
+Here we follow **bayes theorem** and assign an observation $X=x$ to the class where this equation is largest:
 
 $$
 \delta_k(x)= -\frac{1}{2}\log|\Sigma_k| - \frac{1}{2}(x-\mu_k)^T\Sigma_k^{-1} (x-\mu_k)+\log \pi_k
@@ -294,7 +286,7 @@ $$
 
 This quadratic discriminant function is very much like the linear discriminant function except that because $Σ_k$ (the covariance matrix) is not identical, you cannot throw away the quadratic terms. This discriminant function is a quadratic function and will contain second order terms.
 
-**The decision boundaries are quadratic equations in $*x$.***
+**The decision boundaries are quadratic equations in $x$.**
 
 See example with computations on diabetes data set [here](https://online.stat.psu.edu/stat508/book/export/html/645).
 
@@ -327,16 +319,15 @@ When there is too little data to estimate the joint distribution, LDA and QDA ar
 
 We have used Bayes Theorem to develop the LDA and QDA classifiers. Now we use the theorem for Naive Bayes Classifier. 
 
-********************************************Naive Bayes Classifier******************************************** is a third generative probabilistic model, that tries to estimate the posterior class probability $\delta_k(x)$ or $P(Y=k|X=x)$ through modelling joint distributions.
+**Naive Bayes Classifier** is a third generative probabilistic model, that tries to estimate the posterior class probability $\delta_k(x)$ or $P(Y=k|X=x)$ through modelling joint distributions.
 
 It is not necessarily reliant on the fact of gaussian features (like LDA and QDA), but it can model multiple class conditionals (also different ones).
 
-<aside>
+
 📌 To do this, Naive Bayes makes a very strong assumption that each observed features is independent of each other feature. Instead of assuming that these functions belong to a particular family of distributions, we only make this independence assumption.
 
 *Within the $k$-th class, the $p$ predictors are independent.*
 
-</aside>
 
 When we have this independence assumption of the $p$ features, the multivariate class conditional function $f_k(x)$  factors out into the product of univariate class conditionals:
 
@@ -355,7 +346,7 @@ This means, that the covariance matrix in this case is the variance along the di
 If the variables are uncorrelated then the variance-covariance matrix will be a diagonal matrix with variances of the individual variables appearing on the main diagonal of the matrix and zeros everywhere else:
 
 <div style="text-align: center;">
-    <img src="/Screenshot_2022-09-24_at_11.18.38.png" alt="dd" width="600" height="350" style="text-align: center;" >
+    <img src="/Screenshot_2022-09-24_at_11.18.38.png" alt="dd" width="300" height="350" style="text-align: center;" >
 </div>
 
 ### Why is this a powerful assumption?
@@ -364,10 +355,8 @@ Essentially, estimating a p-dimensional density function is challenging because 
 
 By assuming that the $p$ covariates are independent within each class, we completely eliminate the need to worry about the association between the $p$ predictors, because we have simply assumed that there is no association between the predictors!
 
-<aside>
-📌 This assumption lead to some pretty decent results, specially in situations where $n$ is not large enough relative to $p$ for us to effectively estimate the joint distribution of the predictors within each class.
 
-</aside>
+📌 This assumption lead to some pretty decent results, specially in situations where $n$ is not large enough relative to $p$ for us to effectively estimate the joint distribution of the predictors within each class.
 
 ### Estimating Class Conditionals
 
@@ -377,8 +366,8 @@ Generally, there exist many **different approaches** on how to approximate these
 
 **Quantitative features** are commonly estimated through a normal distribution and for **qualitative features,** we simply model the discrete probability distribution through dividing the counts in each category by the total number of observed data points. One strength of the Naive Bayes model over other the other two generative models is the freedom of probability distribution to use for modelling each of the features
 
-- **********************************************************************************************************More on estimating the one-dimensional density function using training data**********************************************************************************************************
-    
+- **More on estimating the one-dimensional density function using training data**
+  
     Here we have a few options, when estimating this:
     
     - If $X_j$ is quantitative, then we can assume that $X_j|Y =k\sim N(μ_{jk},σ_{jk}^2)$. In other words, we assume that within each class, the $j$th predictor is drawn from a (univariate) normal distribution. While this may sound a bit like QDA, there is one key difference, in that here we are assuming that the predictors are independent; this amounts to QDA with an additional assumption that the class-specific covariance matrix is diagonal.
@@ -407,7 +396,7 @@ The logistic regression has a Logit that is linear in $X$.
 
 By contrast, in a logistic regression model, increasing $X$ by 1 unit changes the log odds by $\beta_1$.
 
-********************************************************Log Odds under the model of LDA********************************************************
+**Log Odds under the model of LDA**
 
 $$
 \begin{align*} &\log\frac{P(Y=k|X=x)}{P(Y=K|X=x)} \\ &= \log \frac{\pi_k}{\pi_K}-\frac{1}{2}(\mu_k+\mu_K)^T \Sigma^{-1} (\mu_k-\mu_K) \\ &= a_{k0}+a_k^Tx \\ &= a_k + b_k^T x\end{align*}
@@ -446,7 +435,7 @@ There are some peculiar observations about LDA; QDA and Naive Bayes that are wor
 
 # Kernel Density Estimate
 
-When you have a histogram of data, you can create bins, and count up all the values in each bin. When you create a smoothed out continuous version of this histogram, you have a **********************************************kernel density estimation.********************************************** It allows us to estimate the probability density function, from out finite dataset. We can do this is a non-parametric way (not assuming any underlying distribution). 
+When you have a histogram of data, you can create bins, and count up all the values in each bin. When you create a smoothed out continuous version of this histogram, you have a **kernel density estimation.** It allows us to estimate the probability density function, from out finite dataset. We can do this is a non-parametric way (not assuming any underlying distribution). 
 
 ### Seaborn KDE plot
 
